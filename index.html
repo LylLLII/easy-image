@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="免费在线图片尺寸调整工具，简单易用，无需下载软件">
+    <meta name="keywords" content="图片尺寸,调整图片大小,在线工具,图片编辑">
+    <title>图片尺寸调整工具</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="图片尺寸调整工具">
+    <meta property="og:description" content="免费在线图片尺寸调整工具，简单易用，无需下载软件">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <div id="loading" class="loading" style="display: none;">
+        <div class="loading-spinner"></div>
+        <p>处理中...</p>
+    </div>
+    <div class="container">
+        <div class="upload-area" id="dropZone">
+            <svg class="upload-icon" viewBox="0 0 24 24" width="48" height="48">
+                <path d="M19 13h-4v4h-2v-4H9v-2h4V7h2v4h4v2zm-7-7V4H5v16h14v-7h-2v5H7V6h5zm-6.75 
+                         11.25h10.5M12 16V8" stroke="currentColor" fill="none" stroke-width="2"/>
+            </svg>
+            <p>拖放图片到这里或点击选择文件</p>
+            <input type="file" id="fileInput" accept="image/*" class="file-input">
+        </div>
+
+        <div class="settings" id="settings" style="display: none;">
+            <div class="image-preview">
+                <img id="preview" alt="预览">
+            </div>
+            <div class="size-inputs">
+                <div class="input-group">
+                    <label for="width">宽度 (像素)</label>
+                    <input type="number" id="width" min="1">
+                </div>
+                <div class="input-group">
+                    <label for="height">高度 (像素)</label>
+                    <input type="number" id="height" min="1">
+                </div>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="maintainAspectRatio" checked>
+                    <span>保持宽高比</span>
+                </label>
+            </div>
+            <button id="resizeBtn" class="primary-button">调整尺寸</button>
+            <a id="downloadBtn" class="secondary-button" style="display: none;">下载图片</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
