@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="免费在线图片尺寸调整工具，简单易用，无需下载软件">
-    <meta name="keywords" content="图片尺寸,调整图片大小,在线工具,图片编辑">
-    <title>图片尺寸调整工具</title>
+    <meta name="description" content="免费在线图片处理工具，支持调整尺寸和压缩图片，简单易用，无需下载软件">
+    <meta name="keywords" content="图片压缩,图片尺寸,调整图片大小,在线工具,图片编辑,图片优化">
+    <title>图片优化工具 - 在线调整尺寸和压缩</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="图片尺寸调整工具">
-    <meta property="og:description" content="免费在线图片尺寸调整工具，简单易用，无需下载软件">
+    <meta property="og:title" content="图片优化工具 - 在线调整尺寸和压缩">
+    <meta property="og:description" content="免费在线图片处理工具，支持调整尺寸和压缩图片，简单易用，无需下载软件">
     <meta property="og:type" content="website">
 </head>
 <body>
@@ -42,12 +42,38 @@
                     <label for="height">高度 (像素)</label>
                     <input type="number" id="height" min="1">
                 </div>
+                <div class="input-group">
+                    <label for="format">输出格式</label>
+                    <select id="format" class="format-select">
+                        <option value="jpeg">JPEG (推荐照片)</option>
+                        <option value="png">PNG (无损)</option>
+                        <option value="webp">WebP (最佳压缩)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="compressionPreset">压缩预设</label>
+                    <select id="compressionPreset" class="preset-select">
+                        <option value="high">高质量 (大文件)</option>
+                        <option value="medium" selected>平衡 (推荐)</option>
+                        <option value="low">高压缩 (小文件)</option>
+                        <option value="custom">自定义</option>
+                    </select>
+                </div>
+                <div class="input-group quality-group">
+                    <label for="quality">压缩质量 (%)</label>
+                    <input type="range" id="quality" min="1" max="100" value="80">
+                    <span id="qualityValue">80%</span>
+                </div>
                 <label class="checkbox-container">
                     <input type="checkbox" id="maintainAspectRatio" checked>
                     <span>保持宽高比</span>
                 </label>
             </div>
-            <button id="resizeBtn" class="primary-button">调整尺寸</button>
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <p>原始文件大小: <span id="originalSize">0 KB</span></p>
+                <p>预计压缩后大小: <span id="compressedSize">0 KB</span></p>
+            </div>
+            <button id="resizeBtn" class="primary-button">调整尺寸并压缩</button>
             <a id="downloadBtn" class="secondary-button" style="display: none;">下载图片</a>
         </div>
     </div>
